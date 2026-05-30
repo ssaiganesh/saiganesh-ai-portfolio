@@ -25,7 +25,7 @@ export function AIChatbot() {
     const trimmed = input.trim();
     if (!trimmed) return;
 
-    const nextMessages = [...messages, { role: 'user', text: trimmed }];
+    const nextMessages: ChatMessage[] = [...messages, { role: 'user', text: trimmed }];
     setMessages(nextMessages);
     setInput('');
     setLoading(true);
