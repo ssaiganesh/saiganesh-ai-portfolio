@@ -29,10 +29,10 @@ TABLE_NAME = "portfolio_knowledge"
 app = FastAPI(title="Sai Ganesh Portfolio RAG Agent")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://saiganesh-ai-portfolio.vercel.app"], 
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR), html=True), name="static")
