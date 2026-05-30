@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'frontend/**'
-  workflow_dispatch: # Allows manual triggering from the UI
+  workflow_dispatch: 
 
 jobs:
   deploy-production:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
