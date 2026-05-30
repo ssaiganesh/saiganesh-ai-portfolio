@@ -1,0 +1,49 @@
+# PROFESSIONAL SUMMARY
+Shankar Sai Ganesh is a Solutions-Oriented Software Engineer and NUS MTech (AI Systems) graduate with over 5 years of experience intersecting core software development, data engineering, and artificial intelligence. He has a proven track record of architecting scalable automation pipelines, engineering enterprise-grade data reconciliation systems for major financial institutions like GIC, and deploying multi-agent LLM systems. He is an expert in Python, SQL, MLOps, and production-grade software lifecycles.
+
+# TECHNICAL SKILLS
+Languages: Python (Advanced), SQL (MS SQL, MySQL), JavaScript/TypeScript, Go, Java, PowerShell.
+AI & Machine Learning: LangGraph, Agentic AI, RAG Pipelines, Vector Databases (pgvector), PyTorch, TensorFlow, OpenCV.
+Frameworks & Cloud: Django, Flask, Streamlit, React.js, AWS (ECS Fargate, RDS, Redis), Docker.
+Software & Data Engineering: REST API Design, Data Integration Pipelines (NeoXam Datahub), CI/CD (GitHub Actions, Azure DevOps, Jenkins).
+
+# PROFESSIONAL EXPERIENCE: AVEPOINT (CLIENT: GIC)
+Role: Software Engineer (Jul 2024 - Present, Singapore)
+Sai Ganesh engineered an automated ingestion system ("FeedProc") using Python and SQL to seamlessly process and integrate BlackRock Solutions (BRS) financial factor files into the NeoXam Datahub platform.
+He developed full-stack data management features, including a bulk Excel upload engine and an intuitive UI dashboard to streamline user data operations.
+He architected automated data validation and alerting frameworks to intercept data discrepancies during runtime, guaranteeing 100% data integrity for downstream trading and analytics systems.
+He authored high-performance data reconciliation scripts to align complex datasets between NeoXam Datahub and legacy production environments.
+He optimized ingestion pipelines handling large-scale market data from global providers including Bloomberg, Refinitiv, and ICE.
+
+# PROFESSIONAL EXPERIENCE: HELIUS TECHNOLOGIES (CLIENT: NCS)
+Role: Test Development & Automation Engineer (Nov 2022 - Jun 2024, Singapore)
+Sai Ganesh designed and built an enterprise API Automation Test Framework using JavaScript and Newman for the IRIN3 P3 financial module, fully integrated into Azure DevOps CI/CD pipelines.
+He developed system-level utility scripts using PowerShell to synthetically generate mock bank mainframe files, reducing integration testing cycle times significantly.
+He automated internal engineering workflows by leveraging Microsoft Azure APIs to auto-collect system evidence, removing manual overhead.
+He conducted regular training and upskilling sessions for junior engineers on Java Selenium automation architecture.
+
+# PROFESSIONAL EXPERIENCE: SEAMONEY
+Role: QA Automation Engineer (May 2021 - Sep 2022, Singapore)
+Sai Ganesh programmed core payment API automation frameworks utilizing Golang and Python to validate high-throughput transactional systems.
+He contributed to frontend feature development using React.js and TypeScript for internal engineering interfaces.
+He managed continuous integration workflows, environment deployments, and version control using Jenkins, Git, and Linux environments.
+
+# KEY AI & SYSTEMS PROJECTS: ECHOCHAMBER
+Role: Lead Architect (NUS M.Tech Coursework)
+Sai Ganesh architected an advanced 6-agent AI system using LangGraph (StateGraph) to orchestrate complex corporate workflows, including PII scrubbing and automated strategic insight generation.
+He implemented a low-latency Retrieval-Augmented Generation (RAG) pipeline utilizing pgvector for parallel semantic search and multi-source vector retrieval.
+He optimized production API costs by designing an intelligent model router using OpenAI o3-mini for heavy reasoning tasks and gpt-4o-mini for lighter classification/conversational responses.
+He deployed a scalable, containerized production architecture on AWS (ECS Fargate, RDS, Redis) backed by a fully automated GitHub Actions CI/CD pipeline.
+
+# KEY AI & SYSTEMS PROJECTS: SMART TASK HIVE
+Role: Robotics & LLM Engineer (NUS M.Tech Coursework)
+Sai Ganesh developed a ROS-based, LLM-driven platform for natural-language fleet control, successfully translating user prompts into multi-robot task plans and waypoint dispatches.
+
+# KEY AI & SYSTEMS PROJECTS: MARINE VISION
+Role: Computer Vision Researcher (NUS M.Tech Coursework)
+Sai Ganesh implemented and trained a custom Generative Adversarial Network (Sea-Pix-GAN) from scratch based on academic research frameworks to enhance degraded underwater imagery.
+He improved model robustness across diverse marine environments by introducing Instance Normalization and dropout regularization techniques.
+
+# EDUCATION
+National University of Singapore (NUS): Master of Technology in Artificial Intelligence Systems (Jan 2024 - Dec 2025). Specialization: Architecting Intelligent Systems, NLP, and Robotic Systems.
+National University of Singapore (NUS): Bachelor of Engineering in Mechanical Engineering (Aug 2017 - May 2021).

@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+openai
+supabase
+pypdf
+pytest
+httpx

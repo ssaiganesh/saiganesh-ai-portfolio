@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Ganesh Portfolio AI</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #090b10;
+      color: #e6edf5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px;
+    }
+    .shell {
+      width: min(1000px, 100%);
+      background: #0f1624;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(90deg, #2f4dff, #23d0ff);
+      padding: 20px 24px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .header p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+    }
+    .conversation {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .message {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(34, 40, 68, 0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .message.user {
+      background: rgba(56, 70, 112, 0.8);
+      justify-self: end;
+    }
+    .message.assistant {
+      background: rgba(14, 21, 40, 0.9);
+      justify-self: stretch;
+    }
+    .message .label {
+      font-size: 0.8rem;
+      color: #8aa6df;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .message .text {
+      white-space: pre-wrap;
+      line-height: 1.7;
+    }
+    .composer {
+      display: grid;
+      gap: 12px;
+      padding: 24px;
+      background: #07101f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .composer textarea {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      background: rgba(8, 17, 29, 0.9);
+      color: #eef2ff;
+      padding: 16px;
+      font-size: 1rem;
+      line-height: 1.6;
+      outline: none;
+    }
+    .composer button {
+      width: fit-content;
+      border: none;
+      background: linear-gradient(90deg, #1f7cff, #15e1c9);
+      color: #0a0f1f;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .composer button:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+    .footer {
+      font-size: 0.85rem;
+      color: #9bb0d6;
+      padding: 16px 24px 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="header">
+      <h1>Shankar Sai Ganesh Portfolio AI</h1>
+      <p>Ask questions about my projects, coursework, and professional experience.</p>
+    </div>
+    <div class="conversation" id="conversation"></div>
+    <div class="composer">
+    <textarea id="prompt" placeholder="Ask about EchoChamber, Smart Task Hive, WingSpan, Marine Vision, GIC, or NUS MTech AI Systems..."></textarea>
+    <button id="sendButton">Send</button>
+    </div>
+    <div class="footer">Powered by FastAPI, Supabase RAG, and OpenAI.</div>
+  </div>
+
+  <script>
+    const conversationEl = document.getElementById('conversation');
+    const promptEl = document.getElementById('prompt');
+    const sendButton = document.getElementById('sendButton');
+
+    function addMessage(role, text) {
+      const box = document.createElement('div');
+      box.className = `message ${role}`;
+      const label = document.createElement('div');
+      label.className = 'label';
+      label.textContent = role === 'user' ? 'You' : 'Sai Ganesh AI';
+      const content = document.createElement('div');
+      content.className = 'text';
+      content.textContent = text;
+      box.append(label, content);
+      conversationEl.appendChild(box);
+      conversationEl.scrollTop = conversationEl.scrollHeight;
+    }
+
+    async function sendQuery() {
+      const message = promptEl.value.trim();
+      if (!message) {
+        return;
+      }
+
+      addMessage('user', message);
+      promptEl.value = '';
+      addMessage('assistant', 'Thinking through your portfolio question...');
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message }),
+        });
+
+        const result = await response.json();
+        const assistantMessage = result.answer || 'No answer was returned from the backend.';
+        const assistantBoxes = document.querySelectorAll('.message.assistant');
+        assistantBoxes[assistantBoxes.length - 1].querySelector('.text').textContent = assistantMessage;
+      } catch (error) {
+        const assistantBoxes = document.querySelectorAll('.message.assistant');
+        assistantBoxes[assistantBoxes.length - 1].querySelector('.text').textContent =
+          'Unable to reach the backend. Please refresh the page and try again.';
+      }
+    }
+
+    sendButton.addEventListener('click', sendQuery);
+    promptEl.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendQuery();
+      }
+    });
+  </script>
+</body>
+</html>
