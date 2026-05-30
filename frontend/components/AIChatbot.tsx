@@ -40,7 +40,7 @@ export function AIChatbot() {
       const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage }),
+        body: JSON.stringify({ message: trimmed }),
       });
       const data = await response.json();
       const answer = data?.answer || 'I could not retrieve an answer right now.';
