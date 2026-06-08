@@ -29,7 +29,12 @@ TABLE_NAME = "portfolio_knowledge"
 app = FastAPI(title="Sai Ganesh Portfolio RAG Agent")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://saiganesh-ai-portfolio.vercel.app"], 
+    allow_origins=[
+        "https://saiganesh-ai-portfolio.vercel.app", # Your old Vercel link
+        "https://shankarsaiganesh.com",              # Your NEW custom domain
+        "https://www.shankarsaiganesh.com",          # The 'www' version of your domain
+        "http://localhost:3000"                      # Your local testing environment
+    ],    
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"],
